@@ -8,23 +8,27 @@
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-5.15.4-web/css/all.css">
     <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="main">
         <div id="header" class="grid">
             <div class="row">
-                <div class="col l-2 logo">
+                <div class="col l-2 m-2 sm-0 logo">
                     <a href=""><img src="./assets/img/omega.png" alt="logo"></a>
                 </div>
-                <div class="col l-8 search-box">
+                <div class="col l-8 m-8 sm-8 search-box">
                     <input type="search" name="search" id="" placeholder="Search...">
                     <a href=""><i class="fas fa-search"></i></a>
                 </div>
-                <div class="col l-1 cart">
+                <div class="col l-1 m-1 sm-2 cart">
                     <a href=""><i class="fas fa-shopping-cart"></i></a>
                 </div>
-                <div class="col l-1 user">
+                <div class="col l-1 m-1 sm-2 user">
+                    <a href="" style="display: none"><i class="fas fa-tools"></i></a>
+                    <a href="" style="display: none"><i class="fas fa-sign-out-alt"></i></a>
                     <a href=""><i class="fas fa-user"></i></a>
                 </div>
             </div>
@@ -57,16 +61,70 @@
             <script src="./assets/javascript/slider.js"></script>
         </div>
         <div id="content">
+            <div id="sort" class="grid wide">
+                <div class="row">
+                    <div class="col l-2 m-2 sm-12 sort-by-option">
+                        <select name="Sort" id="">
+                            <option id="default" value="BT">Sắp xếp theo</option>
+                            <option id="ascending" value="TD">Giá Tăng Dần</option>
+                            <option id="descending" value="GD">Giá Giảm Dần</option>
+                            <option id="AtoZ" value="AZ">A-Z</option>
+                            <option id="ZtoA" value="ZA">Z-A</option>
+                        </select>
+                    </div>
+                    <div class="col l-10 m-10 sm-12 sort-by-price">
+                        <input type="text" name="min price" id="" placeholder="Giá từ">
+                        <input type="text" name="max price" id="" placeholder="Đến">
+                        <a href=""><i class="fas fa-filter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content grid wide">
+                <div class="row">
+                    <div class="col l-3 m-4 sm-6 product">
+                        <div class="container">
+                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" alt="">
+                            <a href="" class="name-product">iPhone</a>
+                            <span class="price-product">1149$</span>
+                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="col l-3 m-4 sm-6 product">
+                        <div class="container">
+                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" alt="">
+                            <a href="" class="name-product">iPhone</a>
+                            <span class="price-product">1149$</span>
+                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="col l-3 m-4 sm-6 product">
+                        <div class="container">
+                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" alt="">
+                            <a href="" class="name-product">iPhone</a>
+                            <span class="price-product">1149$</span>
+                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="col l-3 m-4 sm-6 product">
+                        <div class="container">
+                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" alt="">
+                            <a href="" class="name-product">iPhone</a>
+                            <span class="price-product">1149$</span>
+                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="pagination">
-                <a href="#">1</a>
-                <a class="active" href="#">2</a>
+                <a class="active" href="#">1</a>
+                <a href="#">2</a>
                 <a href="#">3</a>
             </div>
         </div>
         <div id="footer">
             <div class="grid wide">
                 <div class="row">
-                    <div class="col l-4">
+                    <div class="col l-4 m-4 sm-6">
                         <span>Sản phẩm</span>
                         <ul>
                             <li><a href="">Samsung</a></li>
@@ -74,7 +132,7 @@
                             <li><a href="">Huawei</a></li>
                         </ul>
                     </div>
-                    <div class="col l-4">
+                    <div class="col l-4 m-4 sm-6">
                         <span>Chính sách</span>
                         <ul>
                             <li><a href="">Bảo hành</a></li>
@@ -82,7 +140,7 @@
                             <li><a href="">Thanh toán</a></li>
                         </ul>
                     </div>
-                    <div class="col l-4">
+                    <div class="col l-4 m-4 sm-0">
                         <span>Theo dõi</span>
                         <ul>
                             <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> facebook</a></li>
