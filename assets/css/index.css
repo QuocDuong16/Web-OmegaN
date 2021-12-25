@@ -106,7 +106,29 @@ img {
     background-color: #717171;
 }
 #content {
-
+    height: 500px;
+    padding-top: 50px;
+}
+#content .pagination {
+    width: 100%;
+    text-align: center;
+}
+#content .pagination a {
+    color: black;
+    font-size: 18px;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: 1px solid #242368;
+    border-radius: 16px;
+    transition: background-color .3s;
+}
+#content .pagination a.active {
+    background-color: #06c1d4;
+    color: white;
+}
+#content .pagination a:hover:not(.active) {
+    background-color: #ddd;
+    zoom: 1.05;
 }
 #footer {
     height: 100%;
