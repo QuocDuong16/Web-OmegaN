@@ -72,6 +72,10 @@ img {
 #header .user a {
     font-size: 32px;
 }
+#header .cart a:hover, 
+#header .user a:hover {
+    opacity: 0.6;
+}
 #slider {
     padding-top: 72px;
 }
