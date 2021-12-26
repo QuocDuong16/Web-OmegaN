@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý OmegaN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/fontawesome-free-5.15.4-web/css/all.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/admin.css">
+</head>
+<body>
+    <div id="overlay">
+        <div id="main">
+            <div class="grid">
+                <div class="row">
+                    <div class="col l-2 m-2 sm-2 left-bar">
+                        <ul>
+                            <li class="bar-1 select-js active" onclick="showSelect('.bar-1');"><i class="fas fa-users"></i><span>Tài khoản</span></li>
+                            <li class="bar-2 select-js" onclick="showSelect('.bar-2');"><i class="fab fa-product-hunt"></i><span>Sản phẩm</span></li>
+                            <li class="bar-3 select-js" onclick="showSelect('.bar-3');"><i class="fas fa-shopping-cart"></i><span>Đơn hàng</span></li>
+                            <li class="bar-4 select-js" onclick="showSelect('.bar-4');"><i class="fas fa-chart-pie"></i><span>Thống kê</span></li>
+                        </ul>
+                    </div>
+                    <div class="col l-8 m-8 sm-8 content">
+                        <ul>
+                            <li class="bar-1 dis-js">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Tên tài khoản</th>
+                                        <th>Mật khẩu</th>
+                                        <th>Tên khách hàng</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Công cụ</th>
+                                    </tr>
+                                </table>
+                            </li>
+                            <li class="bar-2 dis-js">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td class="idSP">1</td>
+                                        <td class="imgSP"><img src="https://heiz5623.github.io/testStore/img/redminote8.jpg" alt=""></td>
+                                        <td class="tenSP">Xiaomi Redmi Note 8</td>
+                                        <td class="giaSP">199</td>
+                                        <td class="btn-edit"><i class="fas fa-edit"></i></td>
+                                        <td class="btn-delete"><i class="fas fa-trash"></td>
+                                    </tr>                                                                       
+                                </table>
+                            </li>
+                            <li class="bar-3 dis-js">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <th>Tên tài khoản</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Thông tin chi tiết</th>
+                                        <th>Ngày mua</th>
+                                        <th>Tình trạng</th>
+                                        <th>Công cụ</th>
+                                    </tr>
+                                </table>
+                            </li>
+                            <li class="bar-4 dis-js">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <th>Số điện thoại đã bán</th>
+                                        <th>Số linh kiện đã bán</th>
+                                        <th>Số laptop đã bán</th>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col l-2 m-2 sm-2 right-bar">
+                        <ul>
+                            <li class="bar-1 dis-js">
+                                <input type="text" name="" id="" placeholder="Tìm người dùng">
+                                <a href=""><i class="fas fa-search"></i></a>
+                            </li>
+                            <li class="bar-2 dis-js">
+                                <label for="idsp">ID sản phẩm</label>
+                                <input type="text" name="id" id="idsp">
+                                <label for="tensp">Tên sản phẩm</label>
+                                <input type="text" name="ten" id="tensp">
+                                <label for="hangsp">Hãng sản phẩm</label>
+                                <input type="text" name="hang" id="hangsp">
+                                <label for="giasp">Giá sản phẩm</label>
+                                <input type="text" name="gia" id="giasp">
+                                <label for="motasp">Mô tả sản phẩm</label>
+                                <input type="text" name="mo ta" id="motasp">
+                                <label for="hinhanh">Hình ảnh sản phẩm</label>
+                                <input type="file" name="anh" id="hinhanh">
+                                <input type="submit" value="Xong">
+                            </li>
+                            <li class="bar-3 dis-js">
+                                <select name="" id="">
+                                    <option value="Tất cả">Tất cả</option>
+                                    <option value="Đã hoàn tất">Đã hoàn tất</option>
+                                    <option value="Chưa hoàn tất">Chưa hoàn tất</option>
+                                    <option value="Khách hủy">Khách hủy</option>
+                                </select>
+                            </li>
+                            <li class="bar-4 dis-js">
+                                <p>Tổng số sản phẩm đã bán: <span></span></p>
+                                <p>Tổng số sản phẩm tồn kho: <span></span></p>
+                                <p>Tổng số doanh thu: <span></span></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/javascript/admin.js"></script>
+</body>
+</html>
