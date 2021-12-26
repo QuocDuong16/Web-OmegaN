@@ -98,7 +98,7 @@ table, th, td {
     padding-top: 35px;
 }
 .right-bar .bar-1 {
-    display: none;
+    display: block;
     padding-right: 30px;
     padding-left: 30px;
 }
@@ -139,7 +139,7 @@ table, th, td {
     padding-left: 30px;
 }
 .right-bar .bar-4 {
-    display: block;
+    display: none;
     text-align: left;
 }
 .right-bar .bar-4 p {
