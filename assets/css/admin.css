@@ -25,6 +25,10 @@ img {
     width: 100%;
     vertical-align: middle;
 }
+table, th, td {
+    border:1px solid black;
+    padding: 1px;
+}
 #overlay {
     position: fixed;
     display: flex;
@@ -69,11 +73,26 @@ img {
 .content {
     padding-top: 35px;
 }
-table, th, td {
-    border:1px solid black;
-}
 .content .bar-1 {
     display: block;
+}
+.content .bar-2 i,
+.content .bar-3 i,
+.content .bar-1 i {
+    color: #06c1d4;
+    cursor: pointer;
+}
+.content .bar-2 i:hover,
+.content .bar-3 i:hover,
+.content .bar-1 i:hover {
+    opacity: 0.8;
+}
+.content .bar-1,
+.content .bar-3,
+.content .bar-4 {
+    display: block;
+    overflow-y: auto;
+    height: 540px;
 }
 .content .bar-2 {
     display: none;
@@ -85,6 +104,9 @@ table, th, td {
 }
 .content .bar-2 .imgSP {
     width: 10%;
+}
+.content .bar-2 .tenSP {
+    width: 30%;
 }
 .content .bar-3 {
     display: none;
@@ -137,11 +159,4 @@ table, th, td {
     display: none;
     padding-right: 30px;
     padding-left: 30px;
-}
-.right-bar .bar-4 {
-    display: none;
-    text-align: left;
-}
-.right-bar .bar-4 p {
-    margin-bottom: 20px;
 }

@@ -33,6 +33,7 @@ table, th, td {
     width: 100%;
     overflow-x: hidden;
 }
+/* Phần đầu trang */
 #header {
     height: 72px;
     max-width: 100%;
@@ -80,11 +81,13 @@ table, th, td {
 #header .cart a, 
 #header .user a {
     font-size: 32px;
+    margin: 0 2px;
 }
 #header .cart a:hover, 
 #header .user a:hover {
     opacity: 0.6;
 }
+/* Phần slider */
 #slider {
     padding-top: 72px;
 }
@@ -119,6 +122,7 @@ table, th, td {
 #slider .active {
     background-color: #717171;
 }
+/* Phần nội dung chính */
 #content {
     padding-top: 50px;
 }
@@ -218,6 +222,7 @@ table, th, td {
     background-color: #ddd;
     zoom: 1.05;
 }
+/* Phần cuối trang */
 #footer {
     height: 100%;
     background-color: #242368;
@@ -237,6 +242,7 @@ table, th, td {
 #footer a:hover {
     color: #06c1d4;
 }
+/* Hiển thị chi tiết sản phẩm */
 .modal-product {
     display: none;
     position: fixed;
@@ -314,6 +320,7 @@ table, th, td {
     color: red;
     font-size: 24px;
 }
+/* Giỏ hàng */
 .modal-cart {
     position: fixed;
     display: none;

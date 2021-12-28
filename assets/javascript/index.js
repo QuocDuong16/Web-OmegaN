@@ -77,7 +77,7 @@ function createProduct() {
                 id: "7",
                 img: "./assets/img/laptop1.jpg",
                 name: "Surface Laptop Go",
-                description: `CPU: 10th Gen Intel Core i5 processor – 1035G1. 
+                description: `CPU: Intel® Core™ i5-1035G1. 
                                 Card: Intel UHD Graphics. 
                                 RAM: 8 GB. 
                                 SSD: 128 GB.`,
@@ -87,7 +87,7 @@ function createProduct() {
                 id: "8",
                 img: "./assets/img/laptop2.jpg",
                 name: "Laptop ASUS VivoBook 15 A515EA",
-                description: `CPU: Intel® Core™ i3-1115G4, up to 4.1 GHz, 2 cores 4 threads, 6MB Cache. 
+                description: `CPU: Intel® Core™ i3-1115G4. 
                                 Card: Intel® UHD Graphics. 
                                 RAM: 4 GB. 
                                 SSD: 512 GB.`,
@@ -110,7 +110,7 @@ function createProduct() {
 }
 createProduct();
 // Khai báo giỏ hàng
-let Cart = JSON.parse(localStorage.getItem('Cart'));
+let Cart;
 Cart = [];
 function createCart() {
     if (localStorage.getItem('Cart') === null) {
@@ -122,6 +122,32 @@ function createCart() {
     }
 }
 createCart();
+// khai báo thống kê
+let Statistics = [];
+function createStorage() {
+    if (localStorage.getItem('Statistics') === null) {
+        temp = [{quantity: 0, sumOfTotal: 0}];
+        localStorage.setItem('Statistics', JSON.stringify(temp));
+        storage = JSON.parse(localStorage.getItem('Statistics'));
+    } else {
+        storage = JSON.parse(localStorage.getItem('Statistics'));
+    }
+}
+createStorage();
+// Khai báo đặt hàng
+let Invoice = JSON.parse(localStorage.getItem('Invoice'));
+Invoice = [];
+function createInvoice() {
+    if (localStorage.getItem('Invoice') === null) {
+        var temp = [];
+        localStorage.setItem('Invoice', JSON.stringify(temp));
+        Invoice = JSON.parse(localStorage.getItem('Invoice'));
+    } else {
+        storage = JSON.parse(localStorage.getItem('Storage'));
+    }
+}
+createInvoice();
+// Thêm sản phẩm
 function addProduct() {
     var product = document.querySelector('.product-list');
     var html = "";
@@ -139,6 +165,7 @@ function addProduct() {
     product.innerHTML = html;
 }
 addProduct();
+// Tạo phân trang cho sản phẩm
 function createPagination() {
     var products = document.querySelectorAll('.product');
     var pagination = document.querySelector('.pagination');
@@ -172,6 +199,7 @@ function showPage(index) {
     page.classList.add('active');
 }
 createPagination();
+// Tạo sản phẩm
 function showProducts(tempId) {
     var modal = document.querySelector('.modal-product');
     var html = "";
@@ -213,7 +241,7 @@ function showProducts(tempId) {
         event.stopPropagation();
     });
 }
-// Cart
+// Thêm vào giỏ hàng
 function addToCart(tempId, tempQuantity) {
     alert("Đã thêm vào giỏ hàng");
     if (Cart != null) {
@@ -233,11 +261,13 @@ function addToCart(tempId, tempQuantity) {
     }
     localStorage.setItem('Cart', JSON.stringify(Cart));
 }
+// Xóa 1 sản phẩm khỏi giỏ hàng
 function deleteFromCart(index) {
     Cart.splice(index, 1);
     localStorage.setItem('Cart', JSON.stringify(Cart));
     showCart();
 }
+// Chuyển đổi giữa giỏ hàng và đặt hàng
 function switchButton(index) {
     var containers = document.querySelectorAll('.cart-content');
     var options = document.querySelectorAll('.option');
@@ -253,9 +283,10 @@ function switchButton(index) {
         options[1].classList.remove('active');
     }
 }
+var cart = document.querySelector('.modal-cart');
+// Hiển thị giỏ hàng
 function showCart() {
     var sumOfTotal = 0;
-    var cart = document.querySelector('.modal-cart');
     var temp = "";
     if (Cart == null) {
         temp = "";
@@ -291,7 +322,7 @@ function showCart() {
                             ${temp}
                         </table>
                     </div>
-                    <div class="cart-content">
+                    <div class="cart-content payment">
                         <label for="name-customer">Tên người nhận:</label>
                         <input type="text" name="name" id="name-customer">
                         <label for="phone-number">Số điện thoại:</label>
@@ -302,7 +333,7 @@ function showCart() {
                         <input type="text" name="mail" id="mail">
                         <p>Phí ship: 2$</p>
                         <p>Thành tiền: ${sumOfTotal + 2}$</p>
-                        <input type="submit" value="Đặt hàng">
+                        <input onclick="addInvoice();" type="submit" value="Đặt hàng">
                     </div>
                 </div>`
     cart.innerHTML = html;
@@ -320,4 +351,29 @@ function showCart() {
     container.addEventListener('click', function(e) {
         e.stopPropagation();
     });
+}
+function addInvoice() {
+    var payment = document.querySelector('.payment');
+    var temps = payment.getElementsByTagName('input')
+    var nameCustomer = temps[0].value;
+    var phoneCustomer = temps[1].value;
+    var addressCustomer = temps[2].value;
+    var mailCustomer = temps[3].value;
+    var Info = "";
+    var Sum = 0;
+    for (var i = 0; i < Cart.length; i++) {
+        Statistics[0].quantity = Statistics[0].quantity + Cart[i].quantity;
+        Info = Info + " " + Cart[i].name;
+        Sum = Sum + (Cart[i].price * Cart[i].quantity);
+    }
+    Statistics[0].sumOfTotal = Statistics[0].sumOfTotal + Sum;
+    localStorage.setItem('Statistics',JSON.stringify(Statistics));
+    var newInvoice = {name: nameCustomer, phone: phoneCustomer, address: addressCustomer, mail: mailCustomer, info: Info, sum: Sum};
+    Invoice.push(newInvoice);
+    localStorage.setItem('Invoice', JSON.stringify(Invoice));
+    Cart = [];
+    localStorage.setItem('Cart', JSON.stringify(Cart));
+    alert("Đã đặt hàng");
+    cart.innerHTML = "";
+    cart.style.display = 'none';
 }

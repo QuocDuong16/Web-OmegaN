@@ -1,7 +1,4 @@
-@media (min-width: 1024px) {
-
-}
-
+/* Giao diện tablet */
 @media (max-width: 1024px) {
     .hidden {
         display: none;
@@ -21,14 +18,10 @@
         padding: 0 10px;
     }
 }
-
+/* Giao diện < mobile */
 @media (max-width: 739px) {
     #content .sort-by-option,
     #content .sort-by-price {
         text-align: center;
     }
-}
-
-@media (min-width: 600px) {
- 
 }
