@@ -27,9 +27,9 @@
                     <a onclick="showCart();"><i class="fas fa-shopping-cart"></i></a>
                 </div>
                 <div class="col l-1 m-1 sm-2 user">
-                    <a style="display: none"><i class="fas fa-tools"></i></a>
-                    <a style="display: none"><i class="fas fa-sign-out-alt"></i></a>
-                    <a onclick="showLogin();"><i class="fas fa-user"></i></a>
+                    <a class="admin" href="./admin.html" style="display: none"><i class="fas fa-tools"></i></a>
+                    <a class="sign-out" style="display: none"><i class="fas fa-sign-out-alt"></i></a>
+                    <a class="sign-in" onclick="showLogin();"><i class="fas fa-user"></i></a>
                 </div>
             </div>
         </div>
@@ -80,88 +80,7 @@
                 </div>
             </div>
             <div class="main-content grid wide">
-                <div class="row">
-                    <div class="col l-3 m-4 sm-6 product">
-                        <div class="container">
-                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" onclick="showProducts();">
-                            <a onclick="showProducts();" class="name-product">iPhone</a>
-                            <span class="price-product">1149$</span>
-                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="col l-3 m-4 sm-6 product">
-                        <div class="container">
-                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" onclick="showProducts();">
-                            <a onclick="showProducts();" class="name-product">iPhone</a>
-                            <span class="price-product">1149$</span>
-                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="col l-3 m-4 sm-6 product">
-                        <div class="container">
-                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" onclick="showProducts();">
-                            <a onclick="showProducts();" class="name-product">iPhone</a>
-                            <span class="price-product">1149$</span>
-                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="col l-3 m-4 sm-6 product">
-                        <div class="container">
-                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" onclick="showProducts();">
-                            <a onclick="showProducts();" class="name-product">iPhone</a>
-                            <span class="price-product">1149$</span>
-                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="col l-3 m-4 sm-6 product">
-                        <div class="container">
-                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" onclick="showProducts();">
-                            <a onclick="showProducts();" class="name-product">iPhone</a>
-                            <span class="price-product">1149$</span>
-                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="col l-3 m-4 sm-6 product">
-                        <div class="container">
-                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" onclick="showProducts();">
-                            <a onclick="showProducts();" class="name-product">iPhone</a>
-                            <span class="price-product">1149$</span>
-                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="col l-3 m-4 sm-6 product">
-                        <div class="container">
-                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" onclick="showProducts();">
-                            <a onclick="showProducts();" class="name-product">iPhone</a>
-                            <span class="price-product">1149$</span>
-                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="col l-3 m-4 sm-6 product">
-                        <div class="container">
-                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" onclick="showProducts();">
-                            <a onclick="showProducts();" class="name-product">iPhone</a>
-                            <span class="price-product">1149$</span>
-                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="col l-3 m-4 sm-6 product">
-                        <div class="container">
-                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" onclick="showProducts();">
-                            <a onclick="showProducts();" class="name-product">iPhone</a>
-                            <span class="price-product">1149$</span>
-                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="col l-3 m-4 sm-6 product">
-                        <div class="container">
-                            <img src="https://heiz5623.github.io/testStore/img/iphone13promax.jpg" onclick="showProducts();">
-                            <a onclick="showProducts();" class="name-product">iPhone</a>
-                            <span class="price-product">1149$</span>
-                            <div><a class="add-to-cart" href=""><i class="fas fa-cart-plus"></i></a></div>
-                        </div>
-                    </div>
-                </div>
+                <div class="row product-list"></div>
             </div>
             <div class="pagination">
                 <a class="page page-1 active" href="#">1</a>
