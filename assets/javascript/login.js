@@ -22,7 +22,7 @@ function showLogin() {
                     <div class="login-close"><i class="fas fa-window-close"></i></div>
                     <input type="text" class="username" name="login" placeholder="username">
                     <span class="regex-username"></span>
-                    <input type="text" class="password" name="login" placeholder="password">
+                    <input type="password" class="password" name="login" placeholder="password">
                     <span class="regex-password"></span>
                     <input type="submit" onclick="Login();" value="Log In">
                     <div class="login-footer">
@@ -34,9 +34,9 @@ function showLogin() {
                     <div class="login-close"><i class="fas fa-window-close"></i></div>
                     <input type="text" class="username" name="login" placeholder="username">
                     <span class="regex-username"></span>
-                    <input type="text" class="password" name="login" placeholder="password">
+                    <input type="password" class="password" name="login" placeholder="password">
                     <span class="regex-password"></span>
-                    <input type="text" class="password-again" name="login" placeholder="repeat your password">
+                    <input type="password" class="password-again" name="login" placeholder="repeat your password">
                     <span class="regex-password-again"></span>
                     <input type="submit" onclick="Register();" value="Sign Up">
                 </div>`;
