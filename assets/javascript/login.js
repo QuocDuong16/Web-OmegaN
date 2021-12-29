@@ -1,19 +1,14 @@
-var isLogin;
-if (localStorage.getItem('isLogin') === null) {
-    localStorage.setItem('isLogin', '0');
-} else {
-    isLogin = localStorage.getItem('isLogin');
-}
-if (isLogin == 1) {
+cartOfUser = JSON.parse(localStorage.getItem('cartOfUser'));
+// Kiểm tra đã đăng nhập chưa
+isLogin = JSON.parse(localStorage.getItem('isLogin'));
+if (isLogin[0].check == 1) { // Là tài khoản admin
     document.querySelector('.admin').style.display = 'inline-block';
     document.querySelector('.sign-out').style.display = 'inline-block';
     document.querySelector('.sign-in').style.display = 'none';
-} else if (isLogin == 2) {
+} else if (isLogin[0].check == 2) { // Là tài khoản người dùng
     document.querySelector('.sign-out').style.display = 'block';
     document.querySelector('.sign-in').style.display = 'none';
-} else {
-    logout();
-}
+} else {}
 var loginRegister = document.querySelector('#login-register');
 // Hiển thị đăng nhập
 function showLogin() {
@@ -123,6 +118,8 @@ function Register() {
         var newUser = {username: Username, password: Password, properties:'1'}
         user.push(newUser);
         localStorage.setItem('Account',JSON.stringify(user));
+        var temp = {name: newUser.username, cart: newUser.username + "Cart"};
+        cartOfUser.push(temp);
         alert("Đăng ký thành công");
         switchButtonLogin();
     }
@@ -143,17 +140,20 @@ function Login() {
                     document.querySelector('.admin').style.display = 'inline-block';
                     document.querySelector('.sign-out').style.display = 'inline-block';
                     document.querySelector('.sign-in').style.display = 'none';
-                    isLogin = localStorage.setItem('isLogin', '1');
+                    isLogin = [{check: 1, username: "admin"}];
+                    localStorage.setItem('isLogin', JSON.stringify(isLogin));
                     loginRegister.innerHTML = "";
                     loginRegister.style.display = 'none';
+                    createCart();
                     return;
                 }
-                isLogin.login = '2';
-                isLogin = localStorage.setItem('isLogin', '2');
+                isLogin = [{check: 2, username: user[i].username}];
+                localStorage.setItem('isLogin', JSON.stringify(isLogin));
                 document.querySelector('.sign-out').style.display = 'block';
                 document.querySelector('.sign-in').style.display = 'none';
                 loginRegister.innerHTML = "";
                 loginRegister.style.display = 'none';
+                createCart();
                 return;
             }
             else {
@@ -171,5 +171,8 @@ function logout() {
     document.querySelector('.admin').style.display = 'none';
     document.querySelector('.sign-out').style.display = 'none';
     document.querySelector('.sign-in').style.display = 'block';
-    localStorage.setItem('isLogin', '0');
+    cart.innerHTML = "";
+    isLogin = [{check: "0", username: "admin"}];
+    localStorage.setItem('isLogin', JSON.stringify(isLogin));
+    alert("Đã đăng xuất");
 }

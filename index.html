@@ -16,18 +16,20 @@
     <div id="main">
         <div id="header" class="grid">
             <div class="row">
-                <div class="col l-2 m-2 sm-0 logo">
+                <div class="col l-3 m-3 sm-0 logo">
                     <a href=""><img src="./assets/img/omega.png" alt="logo"></a>
                 </div>
-                <div class="col l-8 m-8 sm-8 search-box">
-                    <input type="search" name="search" id="" placeholder="Search...">
-                    <a href=""><i class="fas fa-search"></i></a>
+                <div class="col l-6 m-6 sm-6 search-box">
+                    <input type="search" name="search" id="search-js" placeholder="Search...">
+                    <a onclick="searchProducts();"><i class="fas fa-search"></i></a>
                 </div>
                 <div class="col l-1 m-1 sm-2 cart">
                     <a onclick="showCart();"><i class="fas fa-shopping-cart"></i></a>
                 </div>
                 <div class="col l-1 m-1 sm-2 user">
                     <a class="admin" href="./admin.html" style="display: none"><i class="fas fa-tools"></i></a>
+                </div>
+                <div class="col l-1 m-1 sm-2 user">
                     <a class="sign-out" onclick="logout();" style="display: none"><i class="fas fa-sign-out-alt"></i></a>
                     <a class="sign-in" onclick="showLogin();"><i class="fas fa-user"></i></a>
                 </div>
@@ -64,7 +66,7 @@
             <div id="sort" class="grid wide">
                 <div class="row">
                     <div class="col l-2 m-2 sm-12 sort-by-option">
-                        <select name="Sort" id="">
+                        <select name="Sort" id="sort1" onclick="sortProducts();">
                             <option id="default" value="BT">Sắp xếp theo</option>
                             <option id="ascending" value="TD">Giá Tăng Dần</option>
                             <option id="descending" value="GD">Giá Giảm Dần</option>
@@ -73,20 +75,16 @@
                         </select>
                     </div>
                     <div class="col l-10 m-10 sm-12 sort-by-price">
-                        <input type="text" name="min price" id="" placeholder="Giá từ">
-                        <input type="text" name="max price" id="" placeholder="Đến">
-                        <a href=""><i class="fas fa-filter"></i></a>
+                        <input type="text" id="min-price" placeholder="Giá từ">
+                        <input type="text" id="max-price" placeholder="Đến">
+                        <a onclick="selectPriceProduct();"><i class="fas fa-filter"></i></a>
                     </div>
                 </div>
             </div>
             <div class="main-content grid wide">
                 <div class="row product-list"></div>
             </div>
-            <div class="pagination">
-                <a class="page page-1 active" href="#">1</a>
-                <a class="page page-2" href="#">2</a>
-                <a class="page page-3" href="#">3</a>
-            </div>
+            <div class="pagination"></div>
         </div>
         <div id="footer">
             <div class="grid wide">
@@ -122,7 +120,8 @@
     <div class="modal-cart"></div>
     <div class="modal-product"></div>
     <div id="login-register"></div>
-    <script type="text/javascript" src="./assets/javascript/login.js"></script>
     <script type="text/javascript" src="./assets/javascript/index.js"></script>
+    <script type="text/javascript" src="./assets/javascript/login.js"></script>
+    <script type="text/javascript" src="./assets/javascript/search.js"></script>
 </body>
 </html>

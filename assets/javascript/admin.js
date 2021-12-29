@@ -3,7 +3,7 @@ let Account = JSON.parse(localStorage.getItem('Account'));
 let Product = JSON.parse(localStorage.getItem('Product'));
 let Invoice = JSON.parse(localStorage.getItem('Invoice'));
 let Statistics = JSON.parse(localStorage.getItem('Statistics'));
-window.onload = () => {
+window.onload = function() {
     showProduct();
     showAccount();
     showInvoice();
