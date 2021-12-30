@@ -87,14 +87,14 @@ function Register() {
     var Username = register.querySelector('.username').value;
     var Password = register.querySelector('.password').value;
     var Password2 = register.querySelector('.password-again').value;
-    regex = /^(?=.*[a-zA-Z])[\w._]{8,20}$/;
+    regex = /^(?=.*[a-zA-Z])[\w._]{6,20}$/;
     if (!regex.test(Username)) {
-        register.querySelector('.regex-username').innerHTML = "Tên người dùng không hợp lệ! (từ 8-20 ký tự, gồm các kí tự a-z,A-Z,0-9)";
+        register.querySelector('.regex-username').innerHTML = "Tên người dùng không hợp lệ! (từ 6-20 ký tự, gồm các kí tự a-z,A-Z,0-9)";
         isRegister = false;
     } else {
         register.querySelector('.regex-username').innerHTML = "";
     }
-    regex = /^(?=.*[A-Z])(?=.*[a-z])[A-Za-z\d]{8,}$/;
+    regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     if(!regex.test(Password)) {
         register.querySelector('.regex-password').innerHTML = "Mật khẩu không hợp lệ! (ít nhất 8 ký tự, 1 chữ cái thường, 1 chữ cái in hoa và 1 số)";
         isRegister = false;

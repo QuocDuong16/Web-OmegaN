@@ -135,6 +135,27 @@ function deleteUser(index) {
     localStorage.setItem('Account', JSON.stringify(Account));
     showAccount();
 }
+function searchUser() {
+    var tempAccount = Account;
+    console.log(tempAccount);
+    Account = [{username:'admin', password:'admin', properties:'0'}];
+    var search = document.getElementById('search-js').value;
+    for (var i = 0; i < tempAccount.length; i++) {
+        if (tempAccount[i].properties == 1) {
+            if (search == "") {
+                Account.push(tempAccount[i]);
+                break;
+            }
+            if ((tempAccount[i].username.toLowerCase()).indexOf(search.toLowerCase()) != -1) {
+                Account.push(tempAccount[i]);
+            }
+        }
+    }
+    localStorage.setItem('Account', JSON.stringify(Account));
+    showAccount();
+    localStorage.setItem('Account', JSON.stringify(tempAccount));
+    Account = JSON.parse(localStorage.getItem('Account'));
+}
 function showInvoice() {
     var invoice = document.querySelector('.invoice-list');
     var temp = "";
@@ -146,7 +167,7 @@ function showInvoice() {
                         <td>${Invoice[i].mail}</td>
                         <td>${Invoice[i].info}</td>
                         <td>${Invoice[i].sum}</td>
-                        <td onclick=""><i class="fas fa-trash"></i></td>
+                        <td onclick="deleteInvoice(${i})"><i class="fas fa-trash"></i></td>
                     </tr>`;
         temp = temp.concat(tmp, "");
     }
@@ -166,11 +187,25 @@ function deleteInvoice(index) {
     Invoice.splice(index, 1);
     localStorage.setItem('Invoice', JSON.stringify(Invoice));
     showInvoice();
+    showStatistics();
+}
+function updateStatistics() {
+    Statistics[0].quantity = 0;
+    if (Invoice.length == 0) {
+        Statistics[0].sumOfTotal = 0;
+    }
+    for (var i = 0; i < Invoice.length; i++) {
+        Statistics[0].quantity++;
+        Statistics[0].sumOfTotal += Invoice[i].sum;
+    }
+    localStorage.setItem('Statistics', JSON.stringify(Statistics));
+    Statistics = JSON.parse(localStorage.getItem('Statistics'));
 }
 function showStatistics() {
+    updateStatistics();
     var statistics = document.querySelector('.statistics');
     var html = `<tr>
-                    <th style="width: 50%">Tổng số sản phẩm đã bán</th>
+                    <th style="width: 50%">Tổng số hóa đơn</th>
                     <th style="width: 50%">Tổng số doanh thu</th>
                 </tr>
                 <tr>

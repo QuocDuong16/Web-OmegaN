@@ -159,11 +159,11 @@ createCart();
 let Statistics = [];
 function createStatistics() {
     if (localStorage.getItem('Statistics') === null) {
-        temp = [{quantity: 0, sumOfTotal: 0}];
+        var temp = [{quantity: 0, sumOfTotal: 0}];
         localStorage.setItem('Statistics', JSON.stringify(temp));
-        storage = JSON.parse(localStorage.getItem('Statistics'));
+        Statistics = JSON.parse(localStorage.getItem('Statistics'));
     } else {
-        storage = JSON.parse(localStorage.getItem('Statistics'));
+        Statistics = JSON.parse(localStorage.getItem('Statistics'));
     }
 }
 createStatistics();
@@ -176,7 +176,7 @@ function createInvoice() {
         localStorage.setItem('Invoice', JSON.stringify(temp));
         Invoice = JSON.parse(localStorage.getItem('Invoice'));
     } else {
-        storage = JSON.parse(localStorage.getItem('Storage'));
+        Invoice = JSON.parse(localStorage.getItem('Invoice'));
     }
 }
 createInvoice();
@@ -392,22 +392,40 @@ function showCart() {
     });
 }
 function addInvoice() {
+    if (isLogin[0].check == 0) { // Chưa đăng nhập
+        if (confirm("Chưa đăng nhập, bạn có muốn đăng nhập?")) {
+            showLogin();
+        }
+        return;
+    }
+    var regex;
     var payment = document.querySelector('.payment');
-    var temps = payment.getElementsByTagName('input')
+    var temps = payment.getElementsByTagName('input');
     var nameCustomer = temps[0].value;
     var phoneCustomer = temps[1].value;
     var addressCustomer = temps[2].value;
     var mailCustomer = temps[3].value;
     var Info = "";
+    if (nameCustomer == "" && phoneCustomer == "" && addressCustomer == "" && mailCustomer == "") {
+        alert("Điền đầy đủ thông tin!");
+        return;
+    }
+    regex = /0\d{9}$/;
+    if (!regex.test(phoneCustomer)) {
+        alert("Số điện thoại không hợp lệ");
+        return;
+    }
+    regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (!regex.test(mailCustomer)) {
+        alert("Email không hợp lệ");
+        return;
+    }
     var Sum = 0;
     for (var i = 0; i < Cart.length; i++) {
-        Statistics[0].quantity = Statistics[0].quantity + Cart[i].quantity;
         Info = Info + " " + Cart[i].name;
         Sum = Sum + (Cart[i].price * Cart[i].quantity);
     }
-    Statistics[0].sumOfTotal = Statistics[0].sumOfTotal + Sum;
-    localStorage.setItem('Statistics',JSON.stringify(Statistics));
-    var newInvoice = {name: nameCustomer, phone: phoneCustomer, address: addressCustomer, mail: mailCustomer, info: Info, sum: Sum};
+    var newInvoice = {name: nameCustomer, phone: phoneCustomer, address: addressCustomer, mail: mailCustomer, info: Info, sum: Sum + 2};
     Invoice.push(newInvoice);
     localStorage.setItem('Invoice', JSON.stringify(Invoice));
     Cart = [];
