@@ -15,6 +15,7 @@
         <div id="main">
             <div class="grid">
                 <div class="row">
+                    <!-- Thanh bên trái -->
                     <div class="col l-2 m-2 sm-2 left-bar">
                         <ul>
                             <li class="bar-1 select-js active" onclick="showSelect('.bar-1');"><i class="fas fa-users"></i><span>Tài khoản</span></li>
@@ -24,28 +25,36 @@
                             <li><a href="./index.html"><i class="fas fa-undo-alt"></i><span>Về trang chủ</span></a></li>
                         </ul>
                     </div>
+                    <!-- Thanh giữa -->
                     <div class="col l-8 m-8 sm-8 content">
                         <ul>
+                            <!-- Danh sách người dùng -->
                             <li class="bar-1 dis-js">
                                 <table style="width: 100%" class="account-list"></table>
                             </li>
+                            <!-- Danh sách sản phẩm -->
                             <li class="bar-2 dis-js">
                                 <table style="width: 100%" class="product-list"></table>
                             </li>
+                            <!-- Danh sách đơn đặt hàng -->
                             <li class="bar-3 dis-js">
                                 <table style="width: 100%" class="invoice-list"></table>
                             </li>
+                            <!-- Thống kế -->
                             <li class="bar-4 dis-js">
                                 <table style="width: 100%" class="statistics"></table>
                             </li>
                         </ul>
                     </div>
+                    <!-- Thanh bên phải -->
                     <div class="col l-2 m-2 sm-2 right-bar">
                         <ul>
+                            <!-- Tìm người dùng theo tên -->
                             <li class="bar-1 dis-js">
-                                <input type="text" id="search-js" placeholder="Tìm người dùng">
+                                <input onchange="searchUser();" type="text" id="search-js" placeholder="Tìm người dùng">
                                 <a onclick="searchUser();"><i class="fas fa-search"></i></a>
                             </li>
+                            <!-- Sửa / Thêm sản phẩm -->
                             <li class="bar-2 dis-js product-edit"></li>
                             <li class="bar-3 dis-js"></li>
                             <li class="bar-4 dis-js"></li>

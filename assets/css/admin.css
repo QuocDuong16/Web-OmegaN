@@ -1,3 +1,4 @@
+/* Reset css */
 * {
     padding: 0;
     margin: 0;
@@ -6,6 +7,7 @@
 *:focus {
     outline: none;
 }
+/* Css chung */
 html {
     font-family: 'Fira Sans', sans-serif;
     scroll-behavior: smooth;
@@ -30,6 +32,7 @@ table, th, td {
     border:1px solid black;
     padding: 1px;
 }
+/* Lớp phủ mờ bên ngoài */
 #overlay {
     position: fixed;
     display: flex;
@@ -43,6 +46,7 @@ table, th, td {
     justify-content: center;
     z-index: 1;
 }
+/* Nội dung chính */
 #main {
     position: relative;
     text-align: center;
@@ -53,6 +57,7 @@ table, th, td {
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     background-color: #fff;
 }
+/* Thanh bên trái */
 .left-bar {
     text-align: left;
     padding-top: 35px;
@@ -71,6 +76,7 @@ table, th, td {
 .left-bar li:hover:not(.active) {
     background-color: #93FFD8;
 }
+/* Thanh giữa */
 .content {
     padding-top: 35px;
 }
@@ -115,6 +121,7 @@ table, th, td {
 .content .bar-4 {
     display: none;
 }
+/* Thanh bên phải */
 .right-bar {
     height: 600px;
     border-left: 1px solid rgba(51, 51, 51, 0.1);

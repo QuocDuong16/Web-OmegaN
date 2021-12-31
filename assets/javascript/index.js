@@ -1,5 +1,4 @@
 // Kiểm tra xem có đăng nhập chưa
-// let isLogin;
 let isLogin = [];
 function createIsLogin() {
     if (localStorage.getItem('isLogin') === null) {
@@ -391,6 +390,7 @@ function showCart() {
         e.stopPropagation();
     });
 }
+// Thêm đơn đặt hàng mới
 function addInvoice() {
     if (isLogin[0].check == 0) { // Chưa đăng nhập
         if (confirm("Chưa đăng nhập, bạn có muốn đăng nhập?")) {
@@ -410,11 +410,13 @@ function addInvoice() {
         alert("Điền đầy đủ thông tin!");
         return;
     }
+    // Kiểm tra điều kiện số điện thoại
     regex = /0\d{9}$/;
     if (!regex.test(phoneCustomer)) {
         alert("Số điện thoại không hợp lệ");
         return;
     }
+    // Kiểm tra điều kiện email
     regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if (!regex.test(mailCustomer)) {
         alert("Email không hợp lệ");

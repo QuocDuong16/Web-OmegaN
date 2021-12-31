@@ -1,23 +1,20 @@
 // Tìm kiếm
 function searchProducts() {
+    // Tìm theo tên
     var tempProduct = Product;
     Product = [];
     var search = document.getElementById("search-js").value;
     for (var i = 0; i < tempProduct.length; i++) {
-        if (search == "") break;
+        if (search == "") {
+            Product.push(tempProduct[i]);
+            continue;
+        }
         if (tempProduct[i].name.toLowerCase().indexOf(search.toLowerCase()) != -1) {
             Product.push(tempProduct[i]);
         }
     }
-    localStorage.setItem('Product', JSON.stringify(Product));
-    sortProducts();
-    createPagination();
-    localStorage.setItem('Product', JSON.stringify(tempProduct));
-    Product = JSON.parse(localStorage.getItem('Product'));
-}
-// Sắp xếp theo khoảng giá
-function selectPriceProduct() {
-    var tempProduct = Product;
+    // Tìm trong khoảng giá
+    var tempProduct2 = Product;
     Product = [];
     var select = document.querySelector('.sort-by-price');
     var temp = select.getElementsByTagName('input');
@@ -39,11 +36,9 @@ function selectPriceProduct() {
     } else if (min == '') {
         min = 0;
     }
-    console.log(min);
-    console.log(max);
-    for (var i = 0; i < tempProduct.length; i++) {
-        if (tempProduct[i].price >= Number(min) && tempProduct[i].price <= Number(max)) {
-            Product.push(tempProduct[i]);
+    for (var i = 0; i < tempProduct2.length; i++) {
+        if (tempProduct2[i].price >= Number(min) && tempProduct2[i].price <= Number(max)) {
+            Product.push(tempProduct2[i]);
         }
     }
     localStorage.setItem('Product', JSON.stringify(Product));
@@ -58,7 +53,6 @@ function selectPriceProduct() {
 function sortProducts() {
     var sort = document.getElementById('sort1');
     var temp = sort.options[sort.selectedIndex].value;
-    console.log(temp);
     if (temp == 'BT') {
         Product.sort(function(a,b) {
             return a.id - b.id;

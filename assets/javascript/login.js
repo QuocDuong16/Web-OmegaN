@@ -8,7 +8,7 @@ if (isLogin[0].check == 1) { // Là tài khoản admin
 } else if (isLogin[0].check == 2) { // Là tài khoản người dùng
     document.querySelector('.sign-out').style.display = 'block';
     document.querySelector('.sign-in').style.display = 'none';
-} else {}
+} else {} // Chưa đăng nhập isLogin[0].check == 0
 var loginRegister = document.querySelector('#login-register');
 // Hiển thị đăng nhập
 function showLogin() {
