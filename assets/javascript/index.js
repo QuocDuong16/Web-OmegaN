@@ -214,6 +214,7 @@ function createPagination() {
     }
     pagination.innerHTML = html;
 }
+// Hiển thị các nút của từng trang
 function showPage(index) {
     var page = document.querySelector('.page-' + index);
     var pages = document.querySelectorAll('.page');
@@ -231,7 +232,7 @@ function showPage(index) {
     page.classList.add('active');
 }
 createPagination();
-// Tạo sản phẩm
+// Hiển thị thông tin từng sản phẩm
 function showProductInfo(tempId) {
     var modal = document.querySelector('.modal-product');
     var html = "";

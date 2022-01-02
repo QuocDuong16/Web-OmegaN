@@ -47,8 +47,6 @@ function searchProducts() {
     localStorage.setItem('Product', JSON.stringify(tempProduct));
     Product = JSON.parse(localStorage.getItem('Product'));
 }
-// Hàm .sort chú thích: sort(function(a,b) {a-b}) nếu a > b sort() sắp a trước b
-// a < b thì b trước a, a = b giữ nguyên
 // Sắp xếp theo lựa chọn
 function sortProducts() {
     var sort = document.getElementById('sort1');
